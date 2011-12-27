@@ -1,1 +1,3 @@
 Configured tectonicus install for mushtop server
+
+Put the bin into the bin folder and link to it from $PROJ_ROOT/tectonicus.jar

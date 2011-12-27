@@ -1,0 +1,121 @@
+<tectonicus version="2">
+	
+	<config mode = "cmd"
+			outputDir = "/home/john/tectonicus/web"
+			
+			outputHtmlName = "map.html"
+			minecraftJar = "/home/john/minecraft/minecraft.jar"
+			texturePack = "/home/john/minecraft/minecraft.jar"
+
+			numZoomLevels = "8"
+			
+			singlePlayerName = "SinglePlayer"
+			
+			spawnInitiallyVisible = "true"
+			playersInitiallyVisible = "true"
+			bedsInitiallyVisible = "true"
+			signsInitiallyVisible = "true"
+			portalsInitiallyVisible = "true"
+			viewsInitiallyVisible = "true"
+			
+			numDownsampleThreads = "2"
+			eraseOutputDir = "false"
+			useCache = "true"
+			logFile = "/home/john/tectonicus/logs/tectonicus_log.txt"
+	/>
+	
+	<link title="github"
+		  destination = "https://github.com/jcwilk/mushtop-tectonicus"
+		  image = "https://a248.e.akamai.net/assets.github.com/images/modules/header/logov7@4x.png"
+	/>
+	
+	<!-- Rasteriser config applies to all layers -->
+	<rasteriser type = "lwjgl"
+				colourDepth = "32"
+				alphaBits = "0"
+				numSamples = "4"
+				tileSize = "512"
+		>
+	</rasteriser>
+	
+	<!-- Maps to process (must have at least one map) -->
+	
+	<map name="Terra"
+		 cameraAngle="45"
+		 cameraElevation="35"
+		 closestZoomSize="12"
+		 worldDir="/home/john/minecraft/world"
+		 dimension="terra"
+		 useBiomeColours="true"
+		>
+		
+		<!-- Markers to export for this map -->
+		<signs filter="special" />
+		<players filter="all" />
+		<portals filter="all" />
+		<views filter="all" imageFormat="png" imageCompressionLevel="0.95" drawDistance="200" />
+		<spawn show="true" />
+		
+		<!-- Optional world subset -->
+
+		<!-- 
+		<subset>
+			<CircularSubset radius="200" />
+		</subset>
+		-->
+		
+		<!-- Layers to draw for this map (must have at least one layer) -->
+		
+		<layer name="Day"
+			   lighting="day"
+		/>
+		
+		<layer name="Night"
+			   lighting="night"
+		/>
+		
+		<layer name="Caves"
+			   lighting="cave"
+			   renderStyle="cave"
+			   imageFormat="jpg"
+			   imageCompressionLevel="0.95"
+		/>
+	</map>
+	
+	<map name="Nether"
+		 cameraAngle="45"
+		 cameraElevation="35"
+		 closestZoomSize="12"
+		 worldDir="/home/john/minecraft/world"
+		 dimension="nether"
+		>
+		
+		<!-- Markers to export for this map -->
+		<signs filter="special" />
+		<players filter="all" />
+		<portals filter="all" />
+		<views filter="all" imageFormat="png" imageCompressionLevel="0.95" drawDistance="200" />
+		<spawn show="true" />
+				
+		<layer name="Nether"
+				lighting="cave"
+				renderStyle="nether"
+				imageFormat="gif"
+		/>
+	</map>
+	
+	<!-- Tweeks that you shouldn't need but work around quirks on some machines -->
+	<tweeks
+		extractLwjglNatives = "true"
+		forceLoadAwt = "false"
+		force32BitNatives = "false"
+		force64BitNatives = "false"
+	>
+	</tweeks>
+	
+	<!-- Debug options, you shouldn't need to tinker with these -->
+	<debug maxTiles = "-1"
+	>
+	</debug>
+	
+</tectonicus>
